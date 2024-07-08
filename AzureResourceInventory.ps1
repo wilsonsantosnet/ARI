@@ -259,7 +259,7 @@ param ($TenantID,
                 az login --identity
             
             }         
-            else if (!$TenantID) {
+            elseif (!$TenantID) {
                 write-host "Tenant ID not specified. Use -TenantID parameter if you want to specify directly. "
                 write-host "Authenticating Azure"
                 write-host ""
