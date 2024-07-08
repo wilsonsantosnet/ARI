@@ -91,6 +91,9 @@ param ($TenantID,
         $ReportName = 'AzureResourceInventory',
         $ReportDir)
 
+    $TenantID = "..."
+    $midentity = "true"
+
     if ($Debug.IsPresent) {$DebugPreference = 'Continue'}
 
     if ($Debug.IsPresent) {$ErrorActionPreference = "Continue" }Else {$ErrorActionPreference = "silentlycontinue" }
