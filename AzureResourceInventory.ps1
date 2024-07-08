@@ -69,6 +69,7 @@ param ($TenantID,
         [switch]$SecurityCenter,
         $SubscriptionID,
         $ManagementGroup,
+        $midentity,
         $Appid,
         $Secret,
         [string[]]$ResourceGroup,
@@ -247,7 +248,15 @@ param ($TenantID,
             Write-Host "Azure Cloud Environment: " -NoNewline
             $CurrentCloudEnvName = $CloudEnv | Where-Object {$_.isActive -eq 'True'}
             Write-Host $CurrentCloudEnvName.name -BackgroundColor Green
-            if (!$TenantID) {
+
+
+            if ($midentity) {
+                 
+                write-host "Authenticating Azure by identity"
+                az login --identity
+            
+            }         
+            else if (!$TenantID) {
                 write-host "Tenant ID not specified. Use -TenantID parameter if you want to specify directly. "
                 write-host "Authenticating Azure"
                 write-host ""
